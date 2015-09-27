@@ -1,0 +1,92 @@
+﻿<Window xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"  xmlns:local="clr-namespace:P3DHIL"  x:Class="P3DHIL.MainWindow"
+        Title="MainWindow" Height="790" Width="532">
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="TextAlignment" Value="Right" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+    </Window.Resources>
+    <dxlc:LayoutControl Orientation="Vertical">
+        <dxlc:LayoutGroup Header="LayoutGroup" View="Tabs">
+            <dxlc:LayoutGroup Header="Tab">
+                <local:CaptureControl />
+            </dxlc:LayoutGroup>
+            <dxlc:LayoutGroup Header="Tab" Orientation="Vertical">
+                <dxlc:LayoutGroup>
+                    <dxlc:LayoutItem>
+                        <Button Content="Start" Width="75" Click="Button_Click"/>
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Enable AutoPilot" LabelPosition="Top">
+                        <dxe:CheckEdit IsChecked="{Binding AutoPilotEnabled}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Enable Mag Hdg" LabelPosition="Top">
+                        <dxe:CheckEdit IsChecked="{Binding UseMagneticHeading}" />
+                    </dxlc:LayoutItem>
+                </dxlc:LayoutGroup>
+                <dxlc:LayoutGroup Header="Plane Position" View="GroupBox" Orientation="Vertical">
+                    <dxlc:LayoutItem Label="Longitude">
+                        <TextBox Text="{Binding SimPosition.Longitude, StringFormat=\{0:0.000\}}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Latitude">
+                        <TextBox Text="{Binding SimPosition.Latitude, StringFormat=\{0:0.000\}}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Altitude">
+                        <TextBox Text="{Binding SimPosition.Altitude, StringFormat=\{0:0.000\}}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Roll">
+                        <TextBox Text="{Binding SimPosition.Roll, StringFormat=\{0:0.000\}}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Pitch">
+                        <TextBox Text="{Binding SimPosition.Pitch, StringFormat=\{0:0.000\}}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Yaw">
+                        <TextBox Text="{Binding SimPosition.Yaw, StringFormat=\{0:0.000\}}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Magnetic Heading">
+                        <TextBox Text="{Binding SimPosition.MagneticHeading, StringFormat=\{0:0.000\}}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Airspeed">
+                        <TextBox Text="{Binding SimPosition.Airspeed, StringFormat=\{0:0.000\}}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Vertical Speed">
+                        <TextBox Text="{Binding SimPosition.VerticalSpeed, StringFormat=\{0:0.000\}}" />
+                    </dxlc:LayoutItem>
+                </dxlc:LayoutGroup>
+                <dxlc:LayoutGroup>
+                    <dxlc:LayoutGroup Header="Sim Control Positions" View="GroupBox" Orientation="Vertical">
+                        <dxlc:LayoutItem Label="Aileron">
+                            <TextBox Text="{Binding SimControl.Aileron, StringFormat=\{0:0.000\}}" />
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem Label="Elevator">
+                            <TextBox Text="{Binding SimControl.Elevator, StringFormat=\{0:0.000\}}" />
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem Label="Rudder">
+                            <TextBox Text="{Binding SimControl.Rudder, StringFormat=\{0:0.000\}}" />
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem Label="Throttle">
+                            <TextBox Text="{Binding SimControl.Throttle, StringFormat=\{0:0.000\}}" />
+                        </dxlc:LayoutItem>
+                    </dxlc:LayoutGroup>
+                    <dxlc:LayoutGroup Header="APM Control Positions" View="GroupBox" Orientation="Vertical">
+                        <dxlc:LayoutItem Label="Aileron">
+                            <TextBox Text="{Binding ApmControl.Roll, StringFormat=\{0:0.000\}}" />
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem Label="Elevator">
+                            <TextBox Text="{Binding ApmControl.Pitch, StringFormat=\{0:0.000\}}" />
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem Label="Rudder">
+                            <TextBox Text="{Binding ApmControl.Rudder, StringFormat=\{0:0.000\}}" />
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem Label="Throttle">
+                            <TextBox Text="{Binding ApmControl.Throttle, StringFormat=\{0:0.000\}}" />
+                        </dxlc:LayoutItem>
+                    </dxlc:LayoutGroup>
+                </dxlc:LayoutGroup>
+            </dxlc:LayoutGroup>
+        </dxlc:LayoutGroup>
+    </dxlc:LayoutControl>
+</Window>
